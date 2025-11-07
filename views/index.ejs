@@ -1,0 +1,32 @@
+
+<%- include("partials/header.ejs") %>
+
+<body>
+
+    <h1>Book Club</h1>
+
+    <h2>All bookworms welcome!</h2>
+
+    <section id="new-post">
+        <h3>Add Book Review</h3>
+        <form action="/create" method="POST">
+            <p><label for="bookreview">What did you like about the book the most/the least? Would you recommend it to your friends?</label></p>
+            <textarea id="book-review" name="bookReview" rows="4" cols="50"></textarea>
+            <br>
+            <p>(Max. num of characters: 2000)</p>
+            <input type="submit" value="Add Review">
+        </form>
+    </section>
+
+    <section id="all-posts">
+        <% if (locals.bookReview) { %>
+            <% for (let i = 0; i < bookReview.length; i++) { %>
+        
+                <p><%= bookReviewTime[i] %></p>
+                <p><%= bookReview[i] %></p>
+    
+            <% } %>
+        <% } %>
+    </section>
+    
+<%- include("partials/footer.ejs") %>
