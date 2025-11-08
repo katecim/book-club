@@ -1,7 +1,6 @@
 html {
     background-color: #FDF8F7;
     
-    overflow-x: hidden;
     position: relative;
 
     color: #593724;
@@ -47,18 +46,20 @@ html::after {
   position: relative;
   z-index: 2;
   
-  margin: 20px 100px 20px 100px;
+  margin: 10px 100px 20px 100px;
   background: white;
   padding: 50px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(123, 110, 110, 0.1);
+
+  text-align: justify;
 }
 
 .content-title {
     position: relative;
     z-index: 2;
 
-    margin: 30px 20px 20px 100px;
+    margin: 20px 100px 0px 100px;
     padding: 50px; 
 }
 
@@ -68,6 +69,7 @@ body {
 
 footer {
     margin: 30px 100px 0px 100px;
+    padding-left: 20px;
 }
 
 footer > p{
@@ -76,13 +78,115 @@ footer > p{
 
 h1 {
     font-size: 100px;
-    margin: 0px;  
+    margin: 0px;
+
+    font-family: 'Orange Avenue Outline', serif;
 }
 
 h2 {
     margin-bottom: 0px;
+    
+    font-family: 'Orange Avenue', serif;
 }
 
-.book-title {
+h3 {
+    font-family: 'Orange Avenue', serif;
+}
+
+p {
+    font-family: 'Open Sans';
+}
+
+a {
+    color: #b17958;
+}
+
+.h3-title {
     margin-top: 0px;
+}
+
+.myReviews-title {
+    margin-top: 40px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.colummn {
+    flex: 1;
+}
+
+.column.two {
+    margin-right: 50px;
+}
+
+.star {
+    height: 15px;
+}
+
+#new-post {
+    margin-top: 50px;
+}
+
+.submitBtn {
+    border-radius: 7px;
+    border: 1px solid #F2C1AB;
+    
+    font-family: 'Open Sans';
+    color: inherit;
+    font-size: 15px;
+    
+    background-color: #F9E0D4;
+    height: 30px;
+    width: 95px;
+
+    cursor: default;
+}
+
+.submitBtn:hover {
+      background-color: #F2C1AB;
+      transition: 0.2s;
+  }
+
+.submitBtn:active {
+    background-color: #c09987;
+}
+
+.button-container {
+    display: flex;
+    gap: 5px;
+}
+
+.bookReview {
+    background-color: rgb(248, 245, 245);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.reviewDate {
+    color: #8c7465;
+}
+
+@font-face {
+  font-family: 'Orange Avenue';
+  src: url('/fonts/OrangeAvenueDEMO-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orange Avenue Outline';
+  src: url('/fonts/OrangeAvenueOutlineDEMO-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }

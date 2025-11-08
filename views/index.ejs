@@ -3,55 +3,77 @@
 
 <body>
     <div class="content-title">
-    <h1>Book Club</h1>
-    <h2>All bookworms welcome!</h2>
+        <h1>Book Club</h1>
+        <h2>All bookworms welcome!</h2>
     </div>
 
     <div class="content-card">
-    <h3 class="book-title">Book of the month: </h3>
-    <img src="images/book.jpg" alt="book" ></img>
-    
+
+        <div class="container">
+            <div class="column one">
+                <h3 class="h3-title">Book of the Month</h3>
+                <p>Title (EN): The Forty Rules of Love</p>
+                <p>Author: Elif Shafak</p>
+                <p>First published: 2009</p>
+                <p>Genre: Historical Fiction</p>
+                <p>Goodreads rating: 4.1 <img src="images/gold-star.svg" alt="star" class="star">
+                    out of 5 <img src="images/gold-star.svg" alt="star" class="star">
+                    (<a href="https://www.goodreads.com/book/show/6642715-the-forty-rules-of-love">link</a>)</p>
+                <p>Description:<br>Elif Shafak's novel weaves together two parallel stories: the modern-day life of Ella Rubenstein, an unhappy housewife and mother who is transformed after reading a manuscript, and the historical 13th-century tale within that manuscript. This embedded narrative details the life-altering spiritual bond between the renowned poet Rumi and the enigmatic wandering dervish, Shams of Tabriz, whose philosophy is distilled into forty powerful rules of love.</p>
+            </div>
+            <div class="column two">
+                <img src="images/book.jpg" alt="book" ></img>
+            </div>
+        </div>
+
     <section id="all-posts"></section>
 
         <h3>All Reviews</h3>
+        <p class="reviewDate"><%= new Date("2025-11-07").toDateString() %></p>
+        <p class="bookReview">Review 1</p>
+        <p class="reviewDate"><%= new Date("2025-11-05").toDateString() %></p>
+        <p class="bookReview">Review 2</p>
+        <p class="reviewDate"><%= new Date("2025-11-04").toDateString() %></p>
+        <p class="bookReview">Review 3</p>
 
-         <% if (locals.bookReview) { %>
+        <h3 class="myReviews-title">My Reviews</h3>
+
+         <% if (bookReview.length > 0) { %>
             <% for (let i = 0; i < bookReview.length; i++) { %>
-                <p><%= bookReviewTime[i] %></p>
+                <p class="reviewDate"><%= bookReviewTime[i] %></p>
                 
                 <% if (locals.updatedBookReview && originalBookReview == bookReview[i]) { %>
                     
-                    <p><%= updatedBookReview %></p>
+                    <p class="bookReview"><%= updatedBookReview %></p>
                     
                     <% } else { %>
 
-                    <p><%= bookReview[i] %></p>
+                    <p class="bookReview"><%= bookReview[i] %></p>
                 
                     <% } %>
-                    
-                <%# update button %>
-                <form action="/update" method="POST">
-                    <input type="hidden" name="postIndex" value="<%= i %>">
-                    <input type="submit" value="Update">
-                </form>
+
                 
-                <%# delete button %>
-                <form action="/delete" method="POST">
-                    <input type="hidden" name="postIndex" value="<%= i %>">
-                    <input type="submit" value="Delete">
-                </form>
+                <div class="button-container">
+                    
+                    <%# update button %>
+                    <form action="/update" method="POST">
+                        <input type="hidden" name="postIndex" value="<%= i %>">
+                        <input class="submitBtn" type="submit" value="Update">
+                    </form>
+                    
+                    <%# delete button %>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="postIndex" value="<%= i %>">
+                        <input class="submitBtn" type="submit" value="Delete">
+                    </form>
+                </div>
 
                 <br>
 
             <% } %>
+        <% } else { %>
+                <p>No reviews yet.</p>
         <% } %>
-
-        <%= new Date("2025-11-07").toDateString() %>
-        <p>Review 1</p>
-        <%= new Date("2025-11-05").toDateString() %>
-        <p>Review 2</p>
-        <%= new Date("2025-11-04").toDateString() %>
-        <p>Review 3</p>
 
     </section>
 
@@ -60,10 +82,10 @@
 
         <form action="/create" method="POST">
             <p><label for="bookreview">What did you like about the book the most/the least? Would you recommend it to your friends?</label></p>
-            <textarea id="book-review" name="bookReview" rows="4" cols="50"></textarea>
+            <textarea id="book-review" name="bookReview" rows="4" cols="50" required></textarea>
             <br>
             <p>(Max. num of characters: 2000)</p>
-            <input type="submit" value="Add Review">
+            <input class="submitBtn" type="submit" value="Add Review">
         </form>
         
     </section>

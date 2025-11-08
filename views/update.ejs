@@ -1,19 +1,20 @@
 <%- include("partials/header.ejs") %>
-
+ 
 <body>
+    <div class="content-title">
+        <h1>Book Club</h1>
+        <h2>All bookworms welcome!</h2>
+    </div>
 
-    <h1>Book Club</h1>
-    
-    <h2>Update a Review</h2>
-
-    <form action="/save" method="POST">
-        <p><label for="updatebookreview">Update your book review below:</label></p>
-        <input type="hidden" name="postIndex" value="<%= postIndex %>">
-        <textarea name="bookReview" rows="4" cols="50"><%= postText %></textarea>
-        <br>
-        <p>(Max. num of characters: 2000)</p>
-        <input type="submit" value="Save">
-    </form>
-
+    <div class="content-card">
+        <h3 class="h3-title">Update a Review</h3>
+        <form action="/save" method="POST">
+            <input type="hidden" name="postIndex" value="<%= postIndex %>">
+            <textarea name="bookReview" rows="4" cols="50" required><%= postText %></textarea>
+            <br>
+            <p>(Max. num of characters: 2000)</p>
+            <input class="submitBtn" type="submit" value="Save">
+        </form>
+    </div>
 
 <%- include("partials/footer.ejs") %>
