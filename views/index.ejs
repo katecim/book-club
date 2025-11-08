@@ -2,12 +2,14 @@
 <%- include("partials/header.ejs") %>
 
 <body>
-
+    <div class="content-title">
     <h1>Book Club</h1>
-
     <h2>All bookworms welcome!</h2>
+    </div>
 
-    <p>Book of the month: </p>
+    <div class="content-card">
+    <h3 class="book-title">Book of the month: </h3>
+    <img src="images/book.jpg" alt="book" ></img>
     
     <section id="all-posts"></section>
 
@@ -26,11 +28,19 @@
                     <p><%= bookReview[i] %></p>
                 
                     <% } %>
-
+                    
+                <%# update button %>
                 <form action="/update" method="POST">
-                    <input type="hidden" name="postBookReview" value="<%= bookReview[i] %>">
+                    <input type="hidden" name="postIndex" value="<%= i %>">
                     <input type="submit" value="Update">
                 </form>
+                
+                <%# delete button %>
+                <form action="/delete" method="POST">
+                    <input type="hidden" name="postIndex" value="<%= i %>">
+                    <input type="submit" value="Delete">
+                </form>
+
                 <br>
 
             <% } %>
@@ -58,7 +68,7 @@
         
     </section>
 
-    
+    </div>
        
     
 <%- include("partials/footer.ejs") %>

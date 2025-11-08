@@ -1,3 +1,88 @@
+html {
+    background-color: #FDF8F7;
+    
+    overflow-x: hidden;
+    position: relative;
+
+    color: #593724;
+    text-align: left;
+}
+
+/* First wave (lighter) */
+html::before {
+  content: "";
+  position: absolute;
+  
+  left: -25%;
+  width: 150%;
+  height: 50vh;
+  
+  background-color: #F9E0D4; 
+  
+  border-radius: 0 0 100% 100%;
+  
+  z-index: 1; /* Sits behind content-card, but on top of the second wave */
+}
+
+/* Second wave (darker) */
+html::after {
+  content: "";
+  position: absolute;
+  
+  top: 170px;
+  left: -25%;
+  
+  width: 150%;
+  height: 50vh;
+  
+  background-color: #F2C1AB;
+  
+  border-radius: 0 0 100% 100%;
+  
+  z-index: 0; /* Sits at the back */
+}
+
+/* Header and body */
+.content-card {
+  position: relative;
+  z-index: 2;
+  
+  margin: 20px 100px 20px 100px;
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(123, 110, 110, 0.1);
+}
+
+.content-title {
+    position: relative;
+    z-index: 2;
+
+    margin: 30px 20px 20px 100px;
+    padding: 50px; 
+}
+
 body {
-    background-color: white;
+     margin: 0px;
+}
+
+footer {
+    margin: 30px 100px 0px 100px;
+}
+
+footer > p{
+    margin-left: 20px;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0px;  
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.book-title {
+    margin-top: 0px;
 }
