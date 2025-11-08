@@ -7,8 +7,47 @@
 
     <h2>All bookworms welcome!</h2>
 
+    <p>Book of the month: </p>
+    
+    <section id="all-posts"></section>
+
+        <h3>All Reviews</h3>
+
+         <% if (locals.bookReview) { %>
+            <% for (let i = 0; i < bookReview.length; i++) { %>
+                <p><%= bookReviewTime[i] %></p>
+                
+                <% if (locals.updatedBookReview && originalBookReview == bookReview[i]) { %>
+                    
+                    <p><%= updatedBookReview %></p>
+                    
+                    <% } else { %>
+
+                    <p><%= bookReview[i] %></p>
+                
+                    <% } %>
+
+                <form action="/update" method="POST">
+                    <input type="hidden" name="postBookReview" value="<%= bookReview[i] %>">
+                    <input type="submit" value="Update">
+                </form>
+                <br>
+
+            <% } %>
+        <% } %>
+
+        <%= new Date("2025-11-07").toDateString() %>
+        <p>Review 1</p>
+        <%= new Date("2025-11-05").toDateString() %>
+        <p>Review 2</p>
+        <%= new Date("2025-11-04").toDateString() %>
+        <p>Review 3</p>
+
+    </section>
+
     <section id="new-post">
         <h3>Add Book Review</h3>
+
         <form action="/create" method="POST">
             <p><label for="bookreview">What did you like about the book the most/the least? Would you recommend it to your friends?</label></p>
             <textarea id="book-review" name="bookReview" rows="4" cols="50"></textarea>
@@ -16,17 +55,10 @@
             <p>(Max. num of characters: 2000)</p>
             <input type="submit" value="Add Review">
         </form>
+        
     </section>
 
-    <section id="all-posts">
-        <% if (locals.bookReview) { %>
-            <% for (let i = 0; i < bookReview.length; i++) { %>
-        
-                <p><%= bookReviewTime[i] %></p>
-                <p><%= bookReview[i] %></p>
     
-            <% } %>
-        <% } %>
-    </section>
+       
     
 <%- include("partials/footer.ejs") %>

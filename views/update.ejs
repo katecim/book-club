@@ -1,0 +1,19 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+
+    <h1>Book Club</h1>
+    
+    <h2>Update a Review</h2>
+
+    <form action="/save" method="POST">
+        <p><label for="updatebookreview">Update your book review below:</label></p>
+            <input type="hidden" name="originalBookReview" value="<%= bookReview %>">
+            <textarea id="book-review" name="bookReview" rows="4" cols="50"><%= bookReview %></textarea>
+            <br>
+            <p>(Max. num of characters: 2000)</p>
+        <input type="submit" value="Save">
+    </form>
+
+
+<%- include("partials/footer.ejs") %>

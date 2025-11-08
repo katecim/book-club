@@ -18,15 +18,26 @@ app.get("/", (req, res) => {
 app.post("/create", (req, res) => {
 
     bookReview.push(req.body.bookReview);
-    bookReviewTime.push(new Date());
-    console.log(bookReviewTime);
+    bookReviewTime.push(new Date().toDateString());
 
-    res.render("index.ejs", { bookReview : bookReview, bookReviewTime : bookReviewTime });
+    res.render("index.ejs", { originalBookReview : req.body.originalBookReview, updatedBookReview : req.body.bookReview, bookReview : bookReview, bookReviewTime : bookReviewTime });
 });
 
 // update a post
-app.patch("/update", (req, res) => {
-    res.render("index.ejs");
+app.post("/update", (req, res) => {
+
+    res.render("update.ejs", { bookReview : req.body.postBookReview });
+
+});
+
+// save updated post
+app.post("/save", (req, res) => {
+    
+    console.log("Save->Home original: " + req.body.originalBookReview);
+    console.log("Save->Home updated: " + req.body.bookReview);
+
+    res.render("index.ejs", { originalBookReview : req.body.originalBookReview, updatedBookReview : req.body.bookReview, bookReview : bookReview, bookReviewTime : bookReviewTime });
+
 });
 
 // delete a post
