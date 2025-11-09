@@ -1,28 +1,27 @@
 
 <%- include("partials/header.ejs") %>
 
-<body>
-    <div class="content-title">
-        <h1>Book Club</h1>
-        <h2>All bookworms welcome!</h2>
-    </div>
-
     <div class="content-card">
 
-        <div class="container">
+        <div class="bookOfTheMonth-container">
             <div class="column one">
+
                 <h3 class="h3-title">Book of the Month</h3>
-                <p>Title (EN): The Forty Rules of Love</p>
-                <p>Author: Elif Shafak</p>
-                <p>First published: 2009</p>
-                <p>Genre: Historical Fiction</p>
+                <p>Title (EN): <%= bookOfTheMonth.title %></p>
+                <p>Author: <%= bookOfTheMonth.author %></p>
+                <p>First published: <%= bookOfTheMonth.published %></p>
+                <p>Genre: <%= bookOfTheMonth.genre %></p>
                 <p>Goodreads rating: 4.1 <img src="images/gold-star.svg" alt="star" class="star">
                     out of 5 <img src="images/gold-star.svg" alt="star" class="star">
-                    (<a href="https://www.goodreads.com/book/show/6642715-the-forty-rules-of-love">link</a>)</p>
-                <p>Description:<br>Elif Shafak's novel weaves together two parallel stories: the modern-day life of Ella Rubenstein, an unhappy housewife and mother who is transformed after reading a manuscript, and the historical 13th-century tale within that manuscript. This embedded narrative details the life-altering spiritual bond between the renowned poet Rumi and the enigmatic wandering dervish, Shams of Tabriz, whose philosophy is distilled into forty powerful rules of love.</p>
+                    (<a href="https://www.goodreads.com/book/show/6642715-the-forty-rules-of-love" target="_blank">link</a>)</p>
+                <p>Description:
+                    <br>
+                    <%= bookOfTheMonth.description %>
+                </p>
             </div>
+
             <div class="column two">
-                <img src="images/book.jpg" alt="book" ></img>
+                <img src="images/book.jpg" alt="book" >
             </div>
         </div>
 
@@ -30,11 +29,11 @@
 
         <h3>All Reviews</h3>
         <p class="reviewDate"><%= new Date("2025-11-07").toDateString() %></p>
-        <p class="bookReview">Review 1</p>
+        <p class="bookReview"><%= reviews.review1 %></p>
         <p class="reviewDate"><%= new Date("2025-11-05").toDateString() %></p>
-        <p class="bookReview">Review 2</p>
+        <p class="bookReview"><%= reviews.review2 %></p>
         <p class="reviewDate"><%= new Date("2025-11-04").toDateString() %></p>
-        <p class="bookReview">Review 3</p>
+        <p class="bookReview"><%= reviews.review3 %></p>
 
         <h3 class="myReviews-title">My Reviews</h3>
 
@@ -68,8 +67,6 @@
                     </form>
                 </div>
 
-                <br>
-
             <% } %>
         <% } else { %>
                 <p>No reviews yet.</p>
@@ -82,9 +79,8 @@
 
         <form action="/create" method="POST">
             <p><label for="bookreview">What did you like about the book the most/the least? Would you recommend it to your friends?</label></p>
-            <textarea id="book-review" name="bookReview" rows="4" cols="50" required></textarea>
-            <br>
-            <p>(Max. num of characters: 2000)</p>
+            <textarea id="book-review" name="bookReview" rows="4" cols="100" required></textarea>
+            <p class="maxNumText">(Max. num of characters: 2000)</p>
             <input class="submitBtn" type="submit" value="Add Review">
         </form>
         

@@ -12,13 +12,13 @@ html::before {
   content: "";
   position: absolute;
   
-  left: -25%;
-  width: 150%;
-  height: 50vh;
+  left: -15%;
+  width: 115%;
+  height: 60vh;
   
   background-color: #F9E0D4; 
   
-  border-radius: 0 0 100% 100%;
+  border-radius: 0 0 70% 70%;
   
   z-index: 1; /* Sits behind content-card, but on top of the second wave */
 }
@@ -31,7 +31,7 @@ html::after {
   top: 170px;
   left: -25%;
   
-  width: 150%;
+  width: 125%;
   height: 50vh;
   
   background-color: #F2C1AB;
@@ -60,7 +60,9 @@ html::after {
     z-index: 2;
 
     margin: 20px 100px 0px 100px;
-    padding: 50px; 
+    padding: 50px;
+
+    display: flex;
 }
 
 body {
@@ -72,7 +74,7 @@ footer {
     padding-left: 20px;
 }
 
-footer > p{
+footer > p {
     margin-left: 20px;
 }
 
@@ -84,13 +86,13 @@ h1 {
 }
 
 h2 {
-    margin-bottom: 0px;
-    
+    margin-bottom: 0px;  
     font-family: 'Orange Avenue', serif;
 }
 
 h3 {
     font-family: 'Orange Avenue', serif;
+    font-size: 30px;
 }
 
 p {
@@ -109,7 +111,7 @@ a {
     margin-top: 40px;
 }
 
-.container {
+.bookOfTheMonth-container {
     display: flex;
     justify-content: space-between;
     gap: 150px;
@@ -166,9 +168,19 @@ a {
     padding: 5px;
 }
 
-.reviewDate {
+.reviewDate, .maxNumText {
     color: #8c7465;
 }
+
+.logo-img {
+    position: relative;
+    z-index: 2;
+
+    height: 150px;
+    top: -20px;
+    left: 15px;
+}
+
 
 @font-face {
   font-family: 'Orange Avenue';

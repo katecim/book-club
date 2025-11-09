@@ -14,7 +14,9 @@ app.get("/", (req, res) => {
 
     res.render("index.ejs", {
         bookReview : bookReview, 
-        bookReviewTime : bookReviewTime
+        bookReviewTime : bookReviewTime,
+        bookOfTheMonth : bookOfTheMonth,
+        reviews : reviews
     });
 
 });
@@ -71,3 +73,18 @@ app.post("/delete", (req, res) => {
 app.listen(3000, () =>{
     console.log(`The servers is running on port ${port}`);
 });
+
+
+const bookOfTheMonth = {
+    title : "The Forty Rules of Love",
+    author : "Elif Shafak",
+    published : 2009,
+    genre : "Historical Fiction",
+    description: "Elif Shafak's novel weaves together two parallel stories: the modern-day life of Ella Rubenstein, an unhappy housewife and mother who is transformed after reading a manuscript, and the historical 13th-century tale within that manuscript. This embedded narrative details the life-altering spiritual bond between the renowned poet Rumi and the enigmatic wandering dervish, Shams of Tabriz, whose philosophy is distilled into forty powerful rules of love."
+}
+
+const reviews = {
+    review1 : "This novel masterfully interweaves Ella's modern-day marital discontent with the 13th-century spiritual awakening of the poet Rumi, guided by the enigmatic dervish Shams of Tabriz. It's not just historical fiction; it's a profound, layered examination of what it means to truly seek and embrace unconditional love, making it a life-altering and deeply affecting read.",
+    review2 : "Prepare to have your perspective fundamentally shifted by the legendary Shams of Tabriz. His forty rules are a challenging, exhilarating philosophy on life, faith, and the nature of God, and the book's sheer passion for Rumi’s radical transformation is palpable. This is a truly mesmerizing and deeply emotional journey that stays with you long after the final page.",
+    review3 : "Shafak expertly utilizes a dual narrative structure, alternating between a contemporary reader in America and the dramatic, historical lives of Rumi and Shams in 13th-century Turkey. While the modern story provides an accessible entry point, the true power lies in the ancient tale of the revolutionary forty rules."
+}
