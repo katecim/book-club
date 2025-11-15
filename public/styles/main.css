@@ -65,8 +65,17 @@ html::after {
     display: flex;
 }
 
+.logo-img {
+    position: relative;
+
+    height: 150px;
+    left: 10px;
+    bottom: 20px;
+}
+
 body {
-     margin: 0px;
+    margin: 0px;
+    font-family: 'Open Sans';
 }
 
 footer {
@@ -85,18 +94,16 @@ h1 {
     font-family: 'Orange Avenue Outline', serif;
 }
 
+h2, h3 {
+    font-family: 'Orange Avenue', serif;
+}
+
 h2 {
     margin-bottom: 0px;  
-    font-family: 'Orange Avenue', serif;
 }
 
 h3 {
-    font-family: 'Orange Avenue', serif;
     font-size: 30px;
-}
-
-p {
-    font-family: 'Open Sans';
 }
 
 a {
@@ -113,16 +120,15 @@ a {
 
 .bookOfTheMonth-container {
     display: flex;
-    justify-content: space-between;
     gap: 150px;
 }
 
-.colummn {
-    flex: 1;
+.column.one {
+    flex: 2;
 }
 
 .column.two {
-    margin-right: 50px;
+    flex: 1;
 }
 
 .star {
@@ -145,12 +151,13 @@ a {
     height: 30px;
     width: 95px;
 
-    cursor: default;
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .submitBtn:hover {
       background-color: #F2C1AB;
-      transition: 0.2s;
   }
 
 .submitBtn:active {
@@ -170,15 +177,6 @@ a {
 
 .reviewDate, .maxNumText {
     color: #8c7465;
-}
-
-.logo-img {
-    position: relative;
-    z-index: 2;
-
-    height: 150px;
-    top: -20px;
-    left: 15px;
 }
 
 
